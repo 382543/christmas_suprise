@@ -82,7 +82,7 @@ body {
   border-radius: 30px;
   padding: 50px 35px;
   width: 90%;
-  max-width: 500px;
+  max-width: 650px;
   text-align: center;
   border: 3px solid #b11226;
 }
@@ -113,6 +113,9 @@ body {
   color: #b11226;
   font-size: 2.3rem;
   margin-bottom: 20px;
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 /* Christmas Caps */
