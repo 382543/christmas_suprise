@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Christmas Surprise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="bellSound">
+  <source src="jingle-bells-short-454803.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- Snow -->
+<div class="snowflakes">
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+  <div class="snowflake">❄</div><div class="snowflake">❅</div>
+  <div class="snowflake">❆</div><div class="snowflake">❄</div>
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+  <div class="snowflake">❄</div><div class="snowflake">❅</div>
+  <div class="snowflake">❆</div><div class="snowflake">❄</div>
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+  <div class="snowflake">❄</div><div class="snowflake">❅</div>
+  <div class="snowflake">❆</div><div class="snowflake">❄</div>
+  <div class="snowflake">❅</div><div class="snowflake">❆</div>
+</div>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+</audio>
+
+<button id="musicToggle" onclick="toggleMusic()">Mute</button>
+
+<div class="container">
+  
+  
+
+  <div class="card-counter">
+    Card <span id="cardNumber">?</span>
+  </div>
+  
+
+  <button class="random-btn" onclick="showRandomMessage()">Random Card</button>
+
+ <img
+  src="https://pngimg.com/uploads/santa_claus/santa_claus_PNG38509.png"
+  class="santa-card"
+  alt="Santa"
+/>
+
+    <h1 class="title">A Little Magic Just for You</h1>
+
+    <div class="gift-box">
+      <div class="gift-lid"></div>
+      <div class="gift-body"></div>
+      <div class="bow"></div>
+    </div>
+
+    <button class="gift-btn" onclick="openGift()">Open Surprise</button>
+
+    <div class="message-box" id="messageBox">
+      <h2 id="msgTitle"></h2>
+      <p id="msgText"></p>
+      <div class="sparkles"></div>
+    </div>
+    <!-- Decorative Gift Boxes -->
+<div class="floating-gifts">
+  <div class="gift small"></div>
+  <div class="gift medium"></div>
+  <div class="gift large"></div>
+  <div class="gift small"></div>
+  <div class="gift medium"></div>
+</div>
+
+
+<div class="snowflakes">
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+  <span class="snowflake">❅</span>
+  <span class="snowflake">❆</span>
+  <span class="snowflake">❄</span>
+</div>
+<!-- Falling Stars -->
+<div class="stars">
+  <span class="star">✦</span><span class="star">✧</span><span class="star">✦</span>
+  <span class="star">✧</span><span class="star">✦</span><span class="star">✧</span>
+  <span class="star">✦</span><span class="star">✧</span><span class="star">✦</span>
+  <span class="star">✧</span><span class="star">✦</span><span class="star">✧</span>
+  <span class="star">✦</span><span class="star">✧</span><span class="star">✦</span>
+  <span class="star">✧</span><span class="star">✦</span><span class="star">✧</span>
+  <span class="star">✦</span><span class="star">✧</span>
+</div>
+<div class="bell-icon">🔔</div>
+<div class="snowflakes">
+  <span class="snowflake" style="--i:0.05">❄</span>
+  <span class="snowflake" style="--i:0.15">❅</span>
+  <span class="snowflake" style="--i:0.25">❆</span>
+  <span class="snowflake" style="--i:0.35">❄</span>
+  <span class="snowflake" style="--i:0.45">❅</span>
+  <span class="snowflake" style="--i:0.55">❆</span>
+  <span class="snowflake" style="--i:0.65">❄</span>
+  <span class="snowflake" style="--i:0.75">❅</span>
+  <span class="snowflake" style="--i:0.85">❆</span>
+  <span class="snowflake" style="--i:0.95">❄</span>
+</div>
+
+<div class="stars">
+  <span class="star" style="--i:0.1">✦</span>
+  <span class="star" style="--i:0.2">✧</span>
+  <span class="star" style="--i:0.3">✦</span>
+  <span class="star" style="--i:0.4">✧</span>
+  <span class="star" style="--i:0.5">✦</span>
+  <span class="star" style="--i:0.6">✧</span>
+  <span class="star" style="--i:0.7">✦</span>
+  <span class="star" style="--i:0.8">✧</span>
+  <span class="star" style="--i:0.9">✦</span>
+</div>
+
+<!-- Christmas Ribbon with Bell -->
+<div class="corner-ribbon">
+  <span class="ribbon-bell">🔔</span>
+</div>
+
+<!-- Background Christmas Trees -->
+<div class="bg-trees">
+  <div class="tree"></div>
+  <div class="tree"></div>
+  <div class="tree"></div>
+  <div class="tree"></div>
+  <div class="tree"></div>
+  <div class="tree"></div>
+   <div class="tree"></div>
+  <div class="tree"></div>
+  
+
+</div>
+
+
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

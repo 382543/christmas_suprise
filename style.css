@@ -1,0 +1,1270 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #b11226, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* FIX */
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Snow */
+.snowflakes { 
+  position: fixed; 
+  inset: 0; 
+  pointer-events: none; 
+  z-index: 1000;
+}
+
+.snowflake { 
+  position: absolute; 
+  top: -10px; 
+  color: white; 
+  font-size: 1.5em;
+  opacity: 0.8;
+  animation: fall linear infinite; 
+  user-select: none;
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 20%; animation-duration: 10s; animation-delay: 1s; }
+.snowflake:nth-child(3) { left: 30%; animation-duration: 12s; animation-delay: 2s; }
+.snowflake:nth-child(4) { left: 40%; animation-duration: 9s; animation-delay: 0.5s; }
+.snowflake:nth-child(5) { left: 50%; animation-duration: 11s; animation-delay: 1.5s; }
+.snowflake:nth-child(6) { left: 60%; animation-duration: 10s; animation-delay: 2.5s; }
+.snowflake:nth-child(7) { left: 70%; animation-duration: 8s; animation-delay: 1s; }
+.snowflake:nth-child(8) { left: 80%; animation-duration: 12s; animation-delay: 0s; }
+.snowflake:nth-child(9) { left: 90%; animation-duration: 9s; animation-delay: 2s; }
+.snowflake:nth-child(10) { left: 15%; animation-duration: 11s; animation-delay: 0.5s; }
+.snowflake:nth-child(11) { left: 5%; animation-duration: 13s; animation-delay: 1s; }
+.snowflake:nth-child(12) { left: 25%; animation-duration: 9s; animation-delay: 2.5s; }
+.snowflake:nth-child(13) { left: 35%; animation-duration: 10s; animation-delay: 0s; }
+.snowflake:nth-child(14) { left: 45%; animation-duration: 12s; animation-delay: 1.5s; }
+.snowflake:nth-child(15) { left: 55%; animation-duration: 8s; animation-delay: 2s; }
+.snowflake:nth-child(16) { left: 65%; animation-duration: 11s; animation-delay: 0.5s; }
+.snowflake:nth-child(17) { left: 75%; animation-duration: 9s; animation-delay: 3s; }
+.snowflake:nth-child(18) { left: 85%; animation-duration: 13s; animation-delay: 1s; }
+.snowflake:nth-child(19) { left: 95%; animation-duration: 10s; animation-delay: 2s; }
+.snowflake:nth-child(20) { left: 12%; animation-duration: 11s; animation-delay: 0.5s; }
+.snowflake:nth-child(21) { left: 22%; animation-duration: 8s; animation-delay: 1.5s; }
+.snowflake:nth-child(22) { left: 32%; animation-duration: 12s; animation-delay: 2.5s; }
+.snowflake:nth-child(23) { left: 42%; animation-duration: 9s; animation-delay: 0s; }
+.snowflake:nth-child(24) { left: 52%; animation-duration: 10s; animation-delay: 1s; }
+.snowflake:nth-child(25) { left: 62%; animation-duration: 13s; animation-delay: 2s; }
+.snowflake:nth-child(26) { left: 72%; animation-duration: 11s; animation-delay: 0.5s; }
+.snowflake:nth-child(27) { left: 82%; animation-duration: 8s; animation-delay: 1.5s; }
+.snowflake:nth-child(28) { left: 92%; animation-duration: 12s; animation-delay: 2.5s; }
+.snowflake:nth-child(29) { left: 18%; animation-duration: 9s; animation-delay: 1s; }
+.snowflake:nth-child(30) { left: 88%; animation-duration: 10s; animation-delay: 2s; }
+
+@keyframes fall { 
+  to { transform: translateY(110vh); } 
+}
+
+/* Music */
+#musicToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #b11226;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+}
+
+/* Container */
+.container {
+  background: white;
+  border-radius: 30px;
+  padding: 50px 35px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  border: 3px solid #b11226;
+}
+
+/* Buttons */
+.random-btn, .gift-btn {
+  background: #b11226;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* Hide card counter and random button */
+.card-counter,
+.random-btn {
+  display: none !important;
+}
+
+/* Card */
+.surprise-card { display: none; }
+.surprise-card.active { display: block; padding-top: 20px; }
+
+.title {
+  color: #b11226;
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+/* Christmas Caps */
+.christmas-caps {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  height: 50px;
+}
+
+.santa-cap {
+  position: absolute;
+  font-size: 3em;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.left-cap {
+  left: 5%;
+  top: -20px;
+  animation-delay: 0s;
+}
+
+.right-cap {
+  right: 5%;
+  top: -20px;
+  animation-delay: 1.5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+/* Gift */
+.gift-box { width: 140px; height: 140px; margin: 20px auto; position: relative; cursor: pointer; transition: transform 0.3s ease; }
+.gift-box:hover { transform: scale(1.05); }
+.gift-body { background: #b11226; height: 90px; position: absolute; bottom: 0; width: 100%; border-radius: 5px; }
+.gift-lid { background: #e63946; height: 40px; width: 100%; position: absolute; top: 0; border-radius: 5px; transition: all 0.8s ease; }
+.bow { background: gold; width: 30px; height: 30px; border-radius: 50%; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); }
+
+/* Gift Opening Animation */
+.gift-box.opening .gift-lid {
+  transform: translateY(-80px) rotate(15deg);
+  opacity: 0;
+}
+
+/* Santa Image */
+.santa {
+  display: none;
+  width: 180px;
+  margin: 20px auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+.santa.appear {
+  animation: float 3s ease-in-out infinite, zoomIn 1s ease;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Message */
+.message-box {
+  display: none;
+  margin-top: 25px;
+  padding: 20px;
+  border: 2px solid #b11226;
+  border-radius: 20px;
+  background: rgba(177, 18, 38, 0.05);
+}
+
+.message-box.fade-in {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-box h2 {
+  color: #b11226;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.message-box p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.sparkles {
+  height: 20px;
+  background: radial-gradient(circle, #b11226 2px, transparent 3px);
+  background-size: 15px 15px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #b11226 0%, #f7d7dc 60%, #ffffff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Music button */
+#musicToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #b11226;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Snow */
+.snowflakes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  opacity: 0.8;
+  animation: fall 10s linear infinite;
+}
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+/* Card container */
+.container {
+  background: #ffffff;
+  width: 380px;
+  padding: 40px 30px 45px;
+  border-radius: 30px;
+  text-align: center;
+  border: 3px solid #b11226;
+  box-shadow: 0 25px 60px rgba(177, 18, 38, 0.35);
+  position: relative;
+  z-index: 1;
+}
+
+/* Counter */
+.card-counter {
+  background: #b11226;
+  color: white;
+  padding: 6px 18px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+/* Buttons */
+.random-btn,
+.gift-btn {
+  background: #b11226;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 14px 0;
+}
+
+.random-btn:hover,
+.gift-btn:hover {
+  background: #8f0f1f;
+}
+
+/* Card */
+.surprise-card {
+  display: none;
+}
+.surprise-card.active {
+  display: block;
+}
+
+/* Title */
+.title {
+  font-size: 2.4rem;
+  color: #b11226;
+  margin: 20px 0;
+  letter-spacing: 2px;
+}
+
+/* Gift box */
+.gift-box {
+  width: 140px;
+  height: 140px;
+  margin: 25px auto;
+  position: relative;
+}
+
+.gift-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 95px;
+  background: #b11226;
+  border-radius: 10px;
+}
+
+.gift-lid {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background: #e63946;
+  border-radius: 10px;
+}
+
+.bow {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  background: gold;
+  border-radius: 50%;
+}
+
+/* Message */
+.message-box {
+  display: none;
+  margin-top: 25px;
+  padding: 20px;
+  border: 2px solid #b11226;
+  border-radius: 18px;
+  background: #fff5f7;
+}
+
+.surprise-card.open .message-box {
+  display: block;
+}
+
+.message-box h2 {
+  color: #b11226;
+  margin-bottom: 8px;
+}
+
+.message-box p {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Sparkles */
+.sparkles {
+  margin-top: 10px;
+  height: 14px;
+  background: radial-gradient(circle, #b11226 2px, transparent 3px);
+  background-size: 14px 14px;
+  opacity: 0.4;
+}
+
+/* Mobile */
+@media (max-width: 420px) {
+  .container {
+    width: 90%;
+  }
+}
+/* ================= PREMIUM GIFT BOX ================= */
+
+.gift-box {
+  width: 160px;
+  height: 160px;
+  margin: 30px auto;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+/* Gift body */
+.gift-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 110px;
+  background: linear-gradient(145deg, #b11226, #8b0f1e);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 6px 10px rgba(255,255,255,0.15),
+    inset 0 -6px 10px rgba(0,0,0,0.25),
+    0 20px 35px rgba(177,18,38,0.45);
+}
+
+/* Vertical ribbon */
+.gift-body::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffd700, #e6b800);
+  border-radius: 10px;
+}
+
+/* Lid */
+.gift-lid {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(145deg, #e63946, #b11226);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 4px 6px rgba(255,255,255,0.25),
+    0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.8s ease;
+}
+
+/* Horizontal ribbon */
+.gift-lid::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 18px;
+  background: linear-gradient(to right, #ffd700, #e6b800);
+  border-radius: 10px;
+}
+
+/* Bow */
+.bow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 34px;
+  background: radial-gradient(circle, #ffd700, #e6b800);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.bow::before,
+.bow::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 18px;
+  background: linear-gradient(145deg, #ffd700, #e6b800);
+  border-radius: 20px;
+  top: 8px;
+}
+
+.bow::before {
+  left: -24px;
+}
+
+.bow::after {
+  right: -24px;
+}
+
+/* OPEN ANIMATION */
+.gift-box.opening .gift-lid {
+  transform: translateY(-80px) rotate(12deg);
+}
+/* ================= FLOATING GIFTS ================= */
+/* ===== SOFT BACKGROUND GIFTS ===== */
+.floating-gifts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gift {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(145deg, #a80f22, #7a0a17);
+  border-radius: 18px;
+  filter: blur(1px);
+  opacity: 0.35;
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+/* Ribbon */
+.gift::before,
+.gift::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 215, 0, 0.85);
+}
+
+.gift::before {
+  width: 16%;
+  height: 100%;
+  left: 42%;
+}
+
+.gift::after {
+  height: 16%;
+  width: 100%;
+  top: 42%;
+}
+
+/* Positions (ONLY 4 GIFTS) */
+.gift:nth-child(1) { top: 15%; left: 8%; }
+.gift:nth-child(2) { top: 65%; left: 15%; }
+.gift:nth-child(3) { top: 20%; right: 12%; }
+.gift:nth-child(4) { bottom: 12%; right: 18%; }
+
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+/* ===== CLEAN BACKGROUND DECOR (NO PLUS SHAPES) ===== */
+
+.floating-gifts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Soft decorative gift blocks */
+.floating-gifts .gift {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(145deg, #b11226, #7a0a17);
+  border-radius: 22px;
+  opacity: 0.18;
+  filter: blur(2px);
+  animation: slowFloat 14s ease-in-out infinite;
+}
+
+/* REMOVE ribbon crosses completely */
+.floating-gifts .gift::before,
+.floating-gifts .gift::after {
+  display: none;
+}
+
+/* Positions – ONLY 4 */
+.floating-gifts .gift:nth-child(1) {
+  top: 18%;
+  left: 8%;
+}
+.floating-gifts .gift:nth-child(2) {
+  bottom: 20%;
+  left: 14%;
+}
+.floating-gifts .gift:nth-child(3) {
+  top: 22%;
+  right: 10%;
+}
+.floating-gifts .gift:nth-child(4) {
+  bottom: 18%;
+  right: 15%;
+}
+
+@keyframes slowFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.gift-box {
+  box-shadow:
+    0 25px 45px rgba(177,18,38,0.45),
+    0 0 40px rgba(255,215,0,0.25);
+}
+.gift-box {
+  box-shadow:
+    0 25px 45px rgba(177,18,38,0.45),
+    0 0 40px rgba(255,215,0,0.25);
+}
+
+
+/* ================= HEAVY SNOW ================= */
+
+.snowflakes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1.4rem;
+  opacity: 0.9;
+  animation: snowfall linear infinite;
+}
+
+.snowflake:nth-child(odd) {
+  animation-duration: 10s;
+}
+.snowflake:nth-child(even) {
+  animation-duration: 14s;
+}
+
+.snowflake:nth-child(1) { left: 5%; }
+.snowflake:nth-child(2) { left: 12%; }
+.snowflake:nth-child(3) { left: 20%; }
+.snowflake:nth-child(4) { left: 28%; }
+.snowflake:nth-child(5) { left: 36%; }
+.snowflake:nth-child(6) { left: 44%; }
+.snowflake:nth-child(7) { left: 52%; }
+.snowflake:nth-child(8) { left: 60%; }
+.snowflake:nth-child(9) { left: 68%; }
+.snowflake:nth-child(10) { left: 76%; }
+.snowflake:nth-child(11) { left: 84%; }
+.snowflake:nth-child(12) { left: 92%; }
+
+@keyframes snowfall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+/* ===== CLEAN SOFT SNOW ===== */
+.snowflakes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  animation: snowFall linear infinite;
+}
+
+.snowflake:nth-child(odd) { animation-duration: 14s; }
+.snowflake:nth-child(even) { animation-duration: 18s; }
+
+@keyframes snowFall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+.gift-box {
+  box-shadow:
+    0 20px 40px rgba(177,18,38,0.45),
+    inset 0 6px 10px rgba(255,255,255,0.15);
+}
+.snowflake {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+/* ===== MASS FALLING STARS ===== */
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  top: -10px;
+  font-size: 1.1rem;
+  animation: starFall linear infinite;
+  opacity: 0.9;
+}
+
+/* White & Green mix */
+.star:nth-child(odd) {
+  color: white;
+  animation-duration: 10s;
+}
+.star:nth-child(even) {
+  color: #8aff8a; /* soft green */
+  animation-duration: 14s;
+}
+
+/* Spread across screen */
+.star:nth-child(1) { left: 5%; }
+.star:nth-child(2) { left: 10%; }
+.star:nth-child(3) { left: 15%; }
+.star:nth-child(4) { left: 20%; }
+.star:nth-child(5) { left: 25%; }
+.star:nth-child(6) { left: 30%; }
+.star:nth-child(7) { left: 35%; }
+.star:nth-child(8) { left: 40%; }
+.star:nth-child(9) { left: 45%; }
+.star:nth-child(10) { left: 50%; }
+.star:nth-child(11) { left: 55%; }
+.star:nth-child(12) { left: 60%; }
+.star:nth-child(13) { left: 65%; }
+.star:nth-child(14) { left: 70%; }
+.star:nth-child(15) { left: 75%; }
+.star:nth-child(16) { left: 80%; }
+.star:nth-child(17) { left: 85%; }
+.star:nth-child(18) { left: 90%; }
+.star:nth-child(19) { left: 95%; }
+.star:nth-child(20) { left: 48%; }
+
+@keyframes starFall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+/* ===== SANTA HOLDING CARD ===== */
+.santa-corner {
+  position: absolute;
+  top: -40px;
+  right: -35px;
+  width: 140px;
+  z-index: 30;
+  animation: santaPeek 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes santaPeek {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+/* ===== CSS SANTA HOLDING CARD (NO IMAGE) ===== */
+
+.santa-corner {
+  position: absolute;
+  top: -45px;
+  right: -35px;
+  width: 90px;
+  height: 90px;
+  z-index: 50;
+  animation: santaPeek 3s ease-in-out infinite;
+}
+
+/* Hat */
+.santa-hat {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 70px;
+  height: 35px;
+  background: #c4162a;
+  border-radius: 50px 50px 10px 10px;
+}
+
+.santa-hat::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Face */
+.santa-face {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  width: 60px;
+  height: 45px;
+  background: #ffe0c7;
+  border-radius: 0 0 40px 40px;
+}
+
+/* Beard */
+.santa-face::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 25px;
+  background: white;
+  border-radius: 50%;
+}
+
+@keyframes santaPeek {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.santa-corner {
+  position: absolute;
+  top: -20px;          /* LOWER Santa */
+  right: -25px;        /* Bring closer to card */
+  width: 95px;
+  height: 95px;
+  z-index: 60;
+  overflow: hidden;    /* IMPORTANT: hides lower part */
+  animation: santaPeek 3s ease-in-out infinite;
+}
+/* Santa hands gripping card */
+.santa-corner::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 15px;
+  width: 65px;
+  height: 18px;
+  background: white;
+  border-radius: 0 0 20px 20px;
+}
+@keyframes santaPeek {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+/* ===== SANTA HOLDING CARD (FIXED) ===== */
+.santa-card {
+  position: absolute;
+  top: 110px;          /* moves Santa down */
+  right: calc(50% - 320px); /* keeps Santa OUTSIDE card */
+  width: 160px;
+  z-index: 50;
+
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
+  pointer-events: none;
+  animation: santaFloat 3s ease-in-out infinite;
+}
+
+/* Floating effect */
+@keyframes santaFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+.santa-card {
+  position: absolute;
+  top: 110px;
+  right: calc(50% - 320px);
+  width: 160px;
+  z-index: 50;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
+  pointer-events: none;
+  animation: santaFloat 3s ease-in-out infinite;
+}
+.surprise-card {
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.15),
+    0 0 0 4px rgba(255,255,255,0.6);
+}
+.gift-btn {
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(178,0,0,0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(178,0,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(178,0,0,0); }
+}
+.snowflake {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  animation-duration: 8s;
+}
+.bell-icon {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  opacity: 0.8;
+  animation: bellSwing 2s infinite ease-in-out;
+}
+
+@keyframes bellSwing {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(10deg); }
+  50% { transform: translateX(-50%) rotate(0deg); }
+  75% { transform: translateX(-50%) rotate(-10deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+/* ===== SNOWFLAKES ===== */
+.snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 14px;
+  opacity: 0.9;
+  animation: snowFall linear infinite;
+}
+
+/* Random positions */
+.snowflake:nth-child(n) {
+  left: calc(100% * var(--i));
+  animation-duration: calc(6s + var(--i) * 5s);
+}
+
+@keyframes snowFall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+/* ===== GREEN STARS ===== */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.star {
+  position: absolute;
+  top: -10px;
+  color: #6bff8a; /* GREEN */
+  font-size: 12px;
+  opacity: 0.8;
+  animation: starFall linear infinite;
+}
+
+.star:nth-child(n) {
+  left: calc(100% * var(--i));
+  animation-duration: calc(7s + var(--i) * 6s);
+}
+
+@keyframes starFall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+/* ===== CARD CORNER RIBBON ===== */
+.corner-ribbon {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 110px;
+  height: 110px;
+  background: #b11226; /* Christmas red */
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 20;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.25);
+}
+
+/* ===== BELL ON RIBBON ===== */
+.ribbon-bell {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-size: 1.6rem;
+  animation: bellSwing 2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Bell swing animation */
+@keyframes bellSwing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(12deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-12deg); }
+  100% { transform: rotate(0deg); }
+}
+.surprise-card {
+  position: relative;   /* ⭐ THIS WAS MISSING */
+  overflow: hidden;     /* keeps ribbon clean inside card */
+}
+/* ===== CHRISTMAS CORNER RIBBON ===== */
+.corner-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #b11226, #e63946);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 30;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.25);
+}
+
+/* ===== BELL ===== */
+.ribbon-bell {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  font-size: 1.6rem;
+  transform-origin: top center;
+  animation: bellSwing 2s ease-in-out infinite;
+}
+
+/* Bell animation */
+@keyframes bellSwing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(12deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-12deg); }
+  100% { transform: rotate(0deg); }
+}
+.corner-ribbon {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(135deg, #c40000, #ff2b2b);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 50;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+}
+
+.ribbon-bell {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  font-size: 26px;
+  animation: bellShake 1.8s infinite;
+}
+
+@keyframes bellShake {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-12deg); }
+  40% { transform: rotate(12deg); }
+  60% { transform: rotate(-6deg); }
+  80% { transform: rotate(6deg); }
+  100% { transform: rotate(0deg); }
+}
+.corner-ribbon-img {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 90px;
+  z-index: 100;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+}
+
+/* Make sure container allows overlay */
+.container {
+  position: relative;
+}
+/* ===== BACKGROUND CHRISTMAS TREES ===== */
+.bg-trees {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* behind everything */
+}
+
+/* Tree shape */
+.tree {
+  position: absolute;
+  width: 120px;
+  height: 160px;
+  background: rgba(177, 18, 38, 0.18); /* Christmas red */
+  clip-path: polygon(
+    50% 0%,
+    70% 20%,
+    60% 20%,
+    80% 45%,
+    65% 45%,
+    90% 70%,
+    10% 70%,
+    35% 45%,
+    20% 45%,
+    40% 20%,
+    30% 20%
+  );
+  filter: blur(2px);
+  animation: treeFloat 10s ease-in-out infinite;
+}
+
+/* Random positions */
+.tree.t1 { top: 12%; left: 8%; animation-delay: 0s; }
+.tree.t2 { bottom: 18%; left: 14%; animation-delay: 2s; }
+.tree.t3 { top: 20%; right: 10%; animation-delay: 1s; }
+.tree.t4 { bottom: 22%; right: 16%; animation-delay: 3s; }
+
+@keyframes treeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+/* ===== RANDOM BACKGROUND CHRISTMAS TREES ===== */
+.bg-trees {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tree {
+  position: absolute;
+  width: 120px;
+  height: 160px;
+  background: rgba(177, 18, 38, 0.18);
+  clip-path: polygon(
+    50% 0%,
+    70% 20%,
+    60% 20%,
+    80% 45%,
+    65% 45%,
+    90% 70%,
+    10% 70%,
+    35% 45%,
+    20% 45%,
+    40% 20%,
+    30% 20%
+  );
+  filter: blur(2px);
+  animation: treeFloat 10s ease-in-out infinite;
+}
+
+@keyframes treeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 768px) {
+
+  body {
+    padding: 20px 10px;
+  }
+
+  /* Card container */
+  .container {
+    width: 100%;
+    max-width: 360px;
+    padding: 30px 20px 35px;
+    border-radius: 22px;
+  }
+
+  /* Title */
+  .title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  /* Gift box */
+  .gift-box {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+  }
+
+  /* Button */
+  .gift-btn {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+
+  /* Santa positioning */
+  .santa-card {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 15px auto 0;
+    width: 120px;
+    display: block;
+  }
+
+  /* Corner ribbon smaller */
+  .corner-ribbon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .ribbon-bell {
+    font-size: 1.2rem;
+    top: 18px;
+    left: 18px;
+  }
+
+  /* Background trees */
+  .tree {
+    opacity: 0.12;
+    transform: scale(0.8);
+  }
+
+  /* Snowflakes lighter */
+  .snowflake {
+    font-size: 0.7rem;
+    opacity: 0.6;
+  }
+
+  /* Stars lighter */
+  .star {
+    font-size: 0.6rem;
+    opacity: 0.6;
+  }
+
+  /* Music button */
+  #musicToggle {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 18px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .gift-box {
+    width: 105px;
+    height: 105px;
+  }
+
+  .santa-card {
+    width: 105px;
+  }
+}
+
